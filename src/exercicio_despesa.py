@@ -64,8 +64,25 @@ def __calcular_total_despesas(alimentacao: float, transporte: float, lazer: floa
     return total_despesas
 
 
+    # PASSO 4
 
+def __comparar_orcamento_com_despesas(orcamento: float, total_despesas: float) -> str: 
+    if total_despesas > orcamento:
+        return("Você ultrapassou o orçamento, seu total de despesas foi de :R$", total_despesas)
+    else:
+        return("Você esta dentro do orçamento !!", total_despesas)
 
+   # PASSO 5
+
+def __exibir_resultados(orcamento: float, alimentacao: float, transporte: float, lazer: float, saude: float, total_despesas: float , resultado: str):
+    print("===== Relatório de Despesas =====")
+    print("Orçamento mensal: R$ ", orcamento)
+    print("Despesas com alimentação: R$ ", alimentacao)
+    print("Despesas com transporte: R$ ", transporte)
+    print("Despesas com lazer: R$ ", lazer)
+    print("Despesas com saúde: R$ ", saude)
+    print("Total de despesas: R$ ", total_despesas)
+    print(resultado)
 
 
 
@@ -84,5 +101,8 @@ def controle_de_despesas():
     lazer = __solicitar_despesas_lazer()
     saude = __solicitar_despesas_saude()
     total_despesas = __calcular_total_despesas(alimentacao, transporte, lazer, saude)
+    resultado = __comparar_orcamento_com_despesas(orcamento, total_despesas)
+    __exibir_resultados(orcamento, alimentacao, transporte, lazer, saude, total_despesas, resultado)
+
 
 
